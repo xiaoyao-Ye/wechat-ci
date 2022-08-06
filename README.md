@@ -11,6 +11,13 @@
 - [ ] 选择/输入版本号
 - [ ] 选择开发者(机器人)
 - [ ] 选择(拉取最新一条 git log)/输入项目备注
+- [ ] 收集信息
+  - [ ] version 版本号, 默认读取 package.json 中的 version
+  - [ ] desc 版本描述
+  - [ ] privateKeyPath 私钥路径
+  - [ ] appid
+  - [ ] projectPath 项目打包后的路径
+  - [ ] name 名称
 
 ## miniprogram-ci
 
