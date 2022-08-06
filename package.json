@@ -7,9 +7,9 @@
     "wechat-ci": "src/index.js"
   },
   "scripts": {
-    "lint": "prettier --write \"**/*.{js,ts}\"",
-    "postinstall": "husky install",
-    "test": "echo pre-commit test"
+    "commit": "git-cz",
+    "commit:origin": "git pull && git add . && git-cz && git push",
+    "lint": "prettier --write \"**/*.{js,ts,json,vue,md}\""
   },
   "repository": {
     "type": "git",
@@ -23,20 +23,17 @@
   },
   "homepage": "https://github.com/xiaoyao-Ye/wechat-ci#readme",
   "devDependencies": {
-    "husky": "^8.0.1",
+    "git-cz": "^4.9.0",
     "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "simple-git-hooks": "^2.8.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "simple-git-hooks": {
+    "pre-commit": "npm run lint-staged"
   },
   "lint-staged": {
-    "*.{js,ts,json}": [
-      "prettier --write",
-      "git add ."
+    "*.{js,ts,json,md,vue}": [
+      "prettier --write"
     ]
   }
-
 }
