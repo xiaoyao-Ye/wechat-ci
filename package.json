@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "prettier --write \"**/*.{js,ts}\"",
     "postinstall": "husky install",
-    "test": "echo \"pre-commit test"
+    "test": "echo pre-commit test"
   },
   "repository": {
     "type": "git",
