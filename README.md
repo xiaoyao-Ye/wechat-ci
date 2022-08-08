@@ -4,7 +4,7 @@
 
 ## display help info
 
-1
+显示当前指令 以及 wx.config.js 有哪些配置
 
 ## upload
 
@@ -33,3 +33,11 @@
 require or jiti?
 
 ## 扩展 接入邮件/企业微信? 支持可视化操作?
+
+当前是上传还是预览
+上传:
+填写上传独有相关信息
+release-it
+填写公共信息
+读取 config.js
+调用 ci
