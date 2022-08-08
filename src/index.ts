@@ -2,6 +2,16 @@
 import path from 'path'
 import { Project, preview } from 'miniprogram-ci'
 import { ProjectType } from 'miniprogram-ci/dist/@types/types'
+import { useInquirer } from './utils/inquirer'
+
+// - [x] 获取命令行输入,
+// - [ ] 获取config.js信息, 并且验证必填项是否已填
+// - [ ] 如果wx.config.js有当前版本, 则使用version, 否则,去获取项目/dist/build/package.json版本
+// - [ ] 如果有备注信息, 使用, 如果没有备注信息去获取最近的git提交记录 组装成 version + commit msg + author
+// - [ ] main()
+// - [ ] 获取当前小程序的配置project.config.json
+// - [ ] 处理上传和预览公共配置
+// - [ ] 上传/预览
 
 console.log('process.cwd()', process.cwd())
 const resolve = (PATH: string) => path.resolve(process.cwd(), PATH)
@@ -48,8 +58,15 @@ const lastPreviewOptions = {
 }
 
 const main = async () => {
-  const previewResult = await preview(lastPreviewOptions)
-  console.log('previewResult', previewResult)
+  const { mode, version, desc } = await useInquirer()
+  console.log('mode', mode)
+  console.log('version', version)
+  console.log('desc', desc)
+
+  console.log('preview', preview)
+  console.log('previewResult', lastPreviewOptions)
+  // const previewResult = await preview(lastPreviewOptions)
+  // console.log('previewResult', previewResult)
 }
 
 main()
