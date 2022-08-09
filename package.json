@@ -1,6 +1,6 @@
 {
   "name": "wechat-ci",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "微信小程序持续构建, 持续交付, 持续部署",
   "bin": {
     "wechat-ci": "lib/index.js"
