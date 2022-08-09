@@ -1,43 +1,75 @@
 # wechat-ci
 
 微信小程序持续构建, 持续交付, 持续部署
+[基于 miniprogram-ci](https://www.npmjs.com/package/miniprogram-ci)
 
-## display help info
+## use
 
-显示当前指令 以及 wx.config.js 有哪些配置
+1. 安装
 
-## upload
+```bash
+npm i wechat-ci -D
+```
 
-- [ ] 选择/输入版本号
-- [ ] 选择开发者(机器人)
-- [ ] 选择(拉取最新一条 git log)/输入项目备注
-- [ ] 收集信息
-  - [ ] version 版本号, 默认读取 package.json 中的 version
-  - [ ] desc 版本描述
-  - [ ] privateKeyPath 私钥路径
-  - [ ] appid
-  - [ ] projectPath 项目打包后的路径
-  - [ ] name 名称
+2. 配置 wx.config.js
 
-## miniprogram-ci
+```js
+// wx.config.js 配置
+export default {
+  // 小程序appid
+  appid: 'xxxx',
+  // 上传的项目路径
+  projectPath: 'project/dist/build/mp-weixin',
+  // package.json路径
+  packageJsonPath: 'project/package.json',
+  // 私钥key路径
+  privateKeyPath: 'project/key/private.wxfcc8888888888888.key',
+  // 小程序
+  type: 'miniProgram',
 
-- [ ] 使用 miniprogram-ci 打包构建上传
-- [ ] 使用 miniprogram-ci 打包构建预览
+  // 预览:
+  previewOptions: {
+    // 返回二维码文件的格式 "image" 或 "base64"， 默认值 "terminal" 供调试用
+    // 'image' | 'base64' | 'terminal' | undefined
+    qrcodeFormat: 'image',
+    // 二维码文件保存路径, required when qrcodeFormat is "image"
+    qrcodeOutputDest: './qrcode.jpg',
+    // 预览页面路径
+    // pagePath: '',
+    // 预览页面路径启动参数
+    // searchQuery: '',
+    // 默认值 1011，具体含义见场景值列表
+    // scene: '1011',
+  },
 
-## release-it 自动提升版本, 打 tag, 生成 changelog 等
+  // 配置 > 自动获取project.config.json > 默认{ es6: true, es7: true, minify: true, ignoreUploadUnusedFiles: true }
+  settings: {},
+}
+```
 
-...
+3. 配置 package.json
 
-## 读取 wx.config.js 配置
+```json
+// ...
+"scripts": {
+  // ...
+  "ci": "uni build -p mp-weixin && weichat-ci",
+}
+// ...
+```
 
-require or jiti?
+4. 预览/发布
 
-## 扩展 接入邮件/企业微信? 支持可视化操作?
+可配合 release-it 使用, release-it after:bump 生命周期运行 `npm run ci`
 
-当前是上传还是预览
-上传:
-填写上传独有相关信息
-release-it
-填写公共信息
-读取 config.js
-调用 ci
+```bash
+npm run ci
+```
+
+## 后续可能扩展
+
+- [ ] display help info 显示当前指令 以及 wx.config.js 有哪些配置
+- [ ] 版本更新提示
+- [ ] 选择 ci 机器人 1~30
+- [ ] 根据 git commit 消息自动获取上传信息`version + commit msg + author`
+- [ ] 接入邮件/企业微信? 支持可视化操作?
