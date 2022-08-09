@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "微信小程序持续构建, 持续交付, 持续部署",
   "bin": {
-    "wechat-ci": "./src/index.js"
+    "wechat-ci": "lib/index.js"
   },
   "scripts": {
     "release": "release-it",

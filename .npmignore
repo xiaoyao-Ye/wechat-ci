@@ -1,0 +1,12 @@
+# 忽略项目内所有不需要上传的文件
+.git
+.vscode
+node_modules
+src
+.gitignore
+.prettierrc
+.prettierignore
+package-lock.json
+pnpm-lock.yaml
+README.md
+tsconfig.json
