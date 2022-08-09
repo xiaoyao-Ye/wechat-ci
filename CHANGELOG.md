@@ -1,3 +1,5 @@
+## [0.1.1](https://github.com/xiaoyao-Ye/wechat-ci/compare/0.1.0...0.1.1) (2022-08-09)
+
 # 0.1.0 (2022-08-09)
 
 ### Features
