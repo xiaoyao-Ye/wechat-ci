@@ -1,7 +1,7 @@
 {
   "name": "wechat-ci",
   "version": "0.1.0",
-  "description": "微信小程序持续构建, 持续交付, 持续部署",
+  "description": "微信小程序 上传代码/预览, 命令行 上传/预览 微信小程序",
   "bin": {
     "wechat-ci": "lib/index.js"
   },
@@ -16,7 +16,10 @@
     "type": "git",
     "url": "git+https://github.com/xiaoyao-Ye/wechat-ci.git"
   },
-  "keywords": [],
+  "keywords": [
+    "wechat-upload",
+    "wechat-preview"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {

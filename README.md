@@ -1,6 +1,6 @@
 # wechat-ci
 
-微信小程序持续构建, 持续交付, 持续部署
+微信小程序 上传代码/预览, 命令行 上传/预览 微信小程序
 [基于 miniprogram-ci](https://www.npmjs.com/package/miniprogram-ci)
 
 ## use
@@ -50,12 +50,9 @@ export default {
 3. 配置 package.json
 
 ```json
-// ...
 "scripts": {
-  // ...
   "ci": "uni build -p mp-weixin && weichat-ci",
 }
-// ...
 ```
 
 4. 预览/发布
