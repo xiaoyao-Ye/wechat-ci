@@ -1,5 +1,5 @@
 import { ProjectType } from 'miniprogram-ci/dist/@types/types'
-import { resolve } from './index'
+import { tryRequire } from './index'
 
 class Options {
   projectPath?: string
@@ -31,15 +31,9 @@ const validator = (options: Options) => {
 
   if (!packageJsonPath) throw new Error('packageJsonPath 不能为空')
 
-  privateKeyPath = resolve(privateKeyPath)
-  projectPath = resolve(projectPath)
-  packageJsonPath = resolve(packageJsonPath || '')
-
   if (previewOptions?.qrcodeFormat === 'image' && !previewOptions?.qrcodeOutputDest) {
     throw new Error('qrcodeFormat: image时qrcodeOutputDest路径不能为空')
   }
-
-  if (previewOptions?.qrcodeOutputDest) previewOptions.qrcodeOutputDest = resolve(previewOptions.qrcodeOutputDest)
 
   return {
     ...options,
@@ -54,7 +48,7 @@ const validator = (options: Options) => {
 
 const loadEnv = async () => {
   try {
-    const res = await import(resolve('wx.config.js'))
+    const res = await tryRequire('./wx.config.js')
     console.log('res', res)
     return res.default
   } catch (error) {

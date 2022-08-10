@@ -1,7 +1,9 @@
+import { tryRequire } from './index'
+
 export const getSettings = async (projectPath: string, settings: {} = {}) => {
   let setting = {}
   try {
-    let projectConfig = await import(`${projectPath}/project.config.json`)
+    let projectConfig = await tryRequire(`./${projectPath}/project.config.json`)
     setting = projectConfig.setting
   } catch (error) {
     console.log('读取 project.config.json 失败', error)
