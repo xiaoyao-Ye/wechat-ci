@@ -1,3 +1,9 @@
+# [0.2.0](https://github.com/xiaoyao-Ye/wechat-ci/compare/0.1.1...0.2.0) (2022-08-10)
+
+### Features
+
+- 🎸 tsc 编译成 esm ([785f0d7](https://github.com/xiaoyao-Ye/wechat-ci/commit/785f0d79c17bad8475b5c69f47ef1b911822bf5a))
+
 ## [0.1.1](https://github.com/xiaoyao-Ye/wechat-ci/compare/0.1.0...0.1.1) (2022-08-09)
 
 # 0.1.0 (2022-08-09)
