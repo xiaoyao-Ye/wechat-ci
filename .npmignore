@@ -4,8 +4,9 @@
 node_modules
 src
 .gitignore
-.prettierrc
+.prettierrc.json
 .prettierignore
+.release-it
 package-lock.json
 pnpm-lock.yaml
 CHANGELOG.md
