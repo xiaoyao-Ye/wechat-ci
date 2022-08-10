@@ -68,5 +68,5 @@ npm run ci
 - [ ] display help info 显示当前指令 以及 wx.config.js 有哪些配置
 - [ ] 版本更新提示
 - [ ] 选择 ci 机器人 1~30
-- [ ] 根据 git commit 消息自动获取上传信息`version + commit msg + author`
+- [ ] 根据 git commit 消息自动获取上传信息`version + commit msg + author` 基于`parse-git-config`
 - [ ] 接入邮件/企业微信? 支持可视化操作?
