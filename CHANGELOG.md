@@ -1,3 +1,9 @@
+## [0.2.1](https://github.com/xiaoyao-Ye/wechat-ci/compare/0.2.0...0.2.1) (2022-08-10)
+
+### Bug Fixes
+
+- 🐛 修复 import 错误问题 ([698ce34](https://github.com/xiaoyao-Ye/wechat-ci/commit/698ce34fd60b08dbeeaf0f3a8c536f3ff0b7791f))
+
 # [0.2.0](https://github.com/xiaoyao-Ye/wechat-ci/compare/0.1.1...0.2.0) (2022-08-10)
 
 ### Features
