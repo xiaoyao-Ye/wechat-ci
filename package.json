@@ -1,6 +1,6 @@
 {
   "name": "wechat-ci",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "微信小程序 上传代码/预览, 命令行 上传/预览 微信小程序",
   "main": "./lib/index.js",
   "bin": {
@@ -53,6 +53,7 @@
   "dependencies": {
     "inquirer": "8.0.0",
     "jiti": "^1.14.0",
-    "miniprogram-ci": "^1.8.35"
+    "miniprogram-ci": "^1.8.35",
+    "semver": "^7.3.7"
   }
 }
