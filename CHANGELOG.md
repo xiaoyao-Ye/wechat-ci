@@ -1,3 +1,7 @@
+
+
+## [0.2.6](https://github.com/xiaoyao-Ye/wechat-ci/compare/0.2.3...0.2.6) (2022-08-11)
+
 ## [0.2.3](https://github.com/xiaoyao-Ye/wechat-ci/compare/0.2.2...0.2.3) (2022-08-11)
 
 ## [0.2.2](https://github.com/xiaoyao-Ye/wechat-ci/compare/0.2.1...0.2.2) (2022-08-11)
