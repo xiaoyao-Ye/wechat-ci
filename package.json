@@ -1,6 +1,6 @@
 {
   "name": "wechat-ci",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "微信小程序 上传代码/预览, 命令行 上传/预览 微信小程序",
   "bin": {
     "wechat-ci": "lib/index.js"
