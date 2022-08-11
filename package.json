@@ -6,7 +6,7 @@
     "wechat-ci": "lib/index.js"
   },
   "scripts": {
-    "release": "release-it",
+    "release": "npm run build && release-it",
     "build": "tsc -p tsconfig.json",
     "commit": "git-cz",
     "commit:origin": "git pull && git add . && git-cz && git push",
