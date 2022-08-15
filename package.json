@@ -10,6 +10,8 @@
     "lib"
   ],
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "simple-git-hooks",
     "release": "npm run build && release-it",
     "build": "tsc -p tsconfig.json",
     "commit": "git-cz",
