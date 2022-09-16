@@ -12,7 +12,8 @@ const init = async () => {
 
   const packageVersion = await getVersion(packageJsonPath)
 
-  const { mode, version, desc } = { mode: 'preview', version: packageVersion!, desc: 'test' }
+  // const { mode, version, desc } = { mode: 'preview', version: packageVersion!, desc: 'test' }
+  const { mode, version, desc } = { mode: 'upload', version: packageVersion!, desc: 'test' }
 
   main({ projectPath, privateKeyPath, type, appid, robot, previewOptions, mode, version, desc, setting })
 }
