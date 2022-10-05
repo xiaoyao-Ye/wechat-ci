@@ -13,6 +13,21 @@ npm i wechat-ci -D
 
 2. 配置 wx.config.js
 
+> 版本 1.0.0 发布后将使用 `wx.config.ts` 配置文件.
+
+version 1.0.0
+
+```ts
+import { defineConfig } from 'wechat-ci'
+// you can use the `defineConfig` helper which should provide intellisense without the need for jsdoc annotations:
+export default defineConfig({
+  // ...
+  // 路径相关配置都是基于 node.js 进程的当前工作目录
+})
+```
+
+version 0.2.6
+
 ```js
 // wx.config.js 配置
 export default {
@@ -65,7 +80,6 @@ npm run ci
 
 ## 后续可能扩展
 
-- [ ] display help info 显示当前指令 以及 wx.config.js 有哪些配置
 - [ ] 版本更新提示
 - [ ] 选择 ci 机器人 1~30
 - [ ] 根据 git commit 消息自动获取上传信息`version + commit msg + author` 基于`parse-git-config`
