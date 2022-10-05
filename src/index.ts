@@ -3,7 +3,8 @@ import { getSettings } from './utils/getSettings'
 import { getVersion } from './utils/getVersion'
 import { useInquirer } from './utils/inquirer'
 import { main } from './utils/main'
-import { parseEnv } from './utils/parseEnv'
+import { parseEnv, defineConfig } from './utils/parseEnv'
+export { defineConfig }
 
 const init = async () => {
   const { projectPath, packageJsonPath, privateKeyPath, type, appid, robot, previewOptions, settings } =
