@@ -1,92 +1,38 @@
-import { ProjectType } from 'miniprogram-ci/dist/@types/types'
-import { tryRequire } from './index'
-
-const validator = (options: UserConfig): UserConfig => {
-  let { projectPath, type, appid, privateKeyPath, packageJsonPath, previewOptions } = options
-
-  if (!type) throw new Error('type 不能为空')
-
-  if (!appid) throw new Error('appid 不能为空')
-
-  if (!privateKeyPath) throw new Error('privateKeyPath 不能为空')
-
-  if (!projectPath) throw new Error('projectPath 不能为空')
-
-  if (!packageJsonPath) throw new Error('packageJsonPath 不能为空')
-
-  if (previewOptions?.qrcodeFormat === 'image' && !previewOptions?.qrcodeOutputDest) {
-    throw new Error('qrcodeFormat: image时qrcodeOutputDest路径不能为空')
-  }
-
-  return options
-
-  // return {
-  //   ...options,
-  //   projectPath,
-  //   type,
-  //   appid,
-  //   privateKeyPath,
-  //   packageJsonPath,
-  //   previewOptions,
-  // }
-}
-
-type UserConfigExport = UserConfig | UserConfigFn
-type UserConfigFn = () => UserConfig | Promise<UserConfig>
-interface UserConfig {
-  /** 小程序 appid */
-  appid: string
-  /** 上传的项目路径 例: project/dist/build/mp-weixin */
-  projectPath: string
-  /** package.json 路径 例: project/package.json */
-  packageJsonPath: string
-  /** 私钥 key 路径 例: project/key/private.wxfcc8888888888888.key */
-  privateKeyPath: string
-  /** 小程序 miniProgram | miniProgramPlugin | 小游戏 miniGame | miniGamePlugin*/
-  type: ProjectType
-  /** 机器人id */
-  robot?: number
-
-  /** 预览配置 */
-  previewOptions?: {
-    /** 返回二维码文件的格式 "image" 或 "base64"， 默认值 "terminal" 供调试用 */
-    qrcodeFormat?: 'image' | 'base64' | 'terminal' | undefined
-    /** 二维码文件保存路径, required when qrcodeFormat is "image" 例: ./qrcode.jpg */
-    qrcodeOutputDest?: string
-    /** 预览页面路径 */
-    pagePath?: string
-    /** 预览页面路径启动参数 */
-    searchQuery?: string
-    /** 默认值 1011，具体含义见场景值列表 */
-    scene?: string
-  }
-
-  /** 配置 > 自动获取project.config.json > 默认{ es6: true, es7: true, minify: true, ignoreUploadUnusedFiles: true } */
-  settings?: {}
-}
-
-function defineConfig(config: UserConfigExport): UserConfigExport {
-  return config
-}
+import { UserConfigExport, UserConfig } from "./config";
+import { resolve, tryRequire } from "./index";
+// import { consola } from "consola";
 
 const loadEnv = async () => {
   try {
-    const apiConfig: UserConfigExport = await tryRequire('./wx.config')
-    if (typeof apiConfig === 'function') {
-      return apiConfig()
-    } else {
-      return apiConfig
+    const apiConfig: UserConfigExport = (await tryRequire(resolve("./wx.config")))?.default;
+    return typeof apiConfig === "function" ? apiConfig() : apiConfig;
+  } catch (error: any) {
+    if (error.code === "MODULE_NOT_FOUND") {
+      throw new Error(
+        `请在项目根目录创建并配置 wx.config.ts 或 wx.config.js 文件. 参考: https://github.com/xiaoyao-Ye/wechat-ci`,
+      );
     }
-  } catch (error) {
-    console.error("try require error, please check 'wx.config.ts' file.")
-    console.error(error)
-    throw new Error('未配置 wx.config.ts 文件')
+    throw new Error(`读取 wx.config 失败: ${error}`);
   }
-}
+};
+
+const validator = (options: UserConfig): UserConfig => {
+  if (Object.keys(options).length === 0) throw new Error("未读取到 wx.config 具体配置项, 请检查配置文件是否正确!");
+
+  const requiredRule = ["projectPath", "type", "appid", "privateKeyPath", "packageJsonPath"];
+  const errorKeys = requiredRule.filter(key => !options[key as keyof typeof options]);
+  if (options?.previewOptions?.qrcodeFormat === "image" && !options?.previewOptions?.qrcodeOutputDest) {
+    throw new Error("qrcodeFormat 属性的值为 image 时, qrcodeOutputDest 路径配置不能为空!");
+  }
+
+  if (errorKeys.length) throw new Error(`配置项 ${errorKeys.join(", ")} 不能为空!`);
+
+  return { ...options, projectPath: resolve(options.projectPath), packageJsonPath: resolve(options.packageJsonPath) };
+};
 
 const parseEnv = async () => {
-  const wxConfig = await loadEnv()
-  return { ...validator(wxConfig) }
-}
+  const wxConfig = await loadEnv();
+  return { ...validator(wxConfig) };
+};
 
-export { parseEnv, defineConfig }
+export { parseEnv };

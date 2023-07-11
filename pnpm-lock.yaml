@@ -5,8 +5,8 @@ dependencies:
     specifier: 8.0.0
     version: 8.0.0
   jiti:
-    specifier: ^1.14.0
-    version: 1.14.0
+    specifier: ^1.16.0
+    version: registry.npmmirror.com/jiti@1.16.0
   miniprogram-ci:
     specifier: ^1.8.35
     version: 1.8.35
@@ -15,6 +15,9 @@ dependencies:
     version: 7.3.7
 
 devDependencies:
+  '@clack/prompts':
+    specifier: ^0.6.3
+    version: registry.npmmirror.com/@clack/prompts@0.6.3
   '@release-it/conventional-changelog':
     specifier: ^5.0.0
     version: 5.0.0(release-it@15.2.0)
@@ -24,6 +27,9 @@ devDependencies:
   '@types/node':
     specifier: ^18.6.4
     version: 18.6.4
+  consola:
+    specifier: ^3.2.3
+    version: registry.npmmirror.com/consola@3.2.3
   git-cz:
     specifier: ^4.9.0
     version: 4.9.0
@@ -2137,7 +2143,7 @@ packages:
       caniuse-lite: 1.0.30001374
       fraction.js: 4.2.0
       normalize-range: 0.1.2
-      picocolors: 1.0.0
+      picocolors: registry.npmmirror.com/picocolors@1.0.0
       postcss: 8.4.14
       postcss-value-parser: 4.2.0
     dev: false
@@ -4780,11 +4786,6 @@ packages:
       regenerator-runtime: 0.13.9
     dev: false
 
-  /jiti@1.14.0:
-    resolution: {integrity: sha512-4IwstlaKQc9vCTC+qUXLM1hajy2ImiL9KnLvVYiaHOtS/v3wRjhLlGl121AmgDgx/O43uKmxownJghS5XMya2A==}
-    hasBin: true
-    dev: false
-
   /jpeg-js@0.3.7:
     resolution: {integrity: sha512-9IXdWudL61npZjvLuVe/ktHiA41iE8qFyLB+4VDTblEsWBzeg8WQTlktdUK4CdncUqtUgUg0bbOmTE2bKBKaBQ==}
     dev: false
@@ -5620,9 +5621,6 @@ packages:
     resolution: {integrity: sha512-CzFr90qM24ju5f88quFC/6qohjC144rehe5n6DH900lgXmUe86+xCKc10ev56gRKC4/BkHUoG4uSiQgBiIXwDA==}
     dev: false
 
-  /picocolors@1.0.0:
-    resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
-
   /pify@2.3.0:
     resolution: {integrity: sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==}
     engines: {node: '>=0.10.0'}
@@ -5956,7 +5954,7 @@ packages:
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.3.4
-      picocolors: 1.0.0
+      picocolors: registry.npmmirror.com/picocolors@1.0.0
       source-map-js: 1.0.2
 
   /prelude-ls@1.1.2:
@@ -6770,7 +6768,7 @@ packages:
       css-select: 4.3.0
       css-tree: 1.1.3
       csso: 4.2.0
-      picocolors: 1.0.0
+      picocolors: registry.npmmirror.com/picocolors@1.0.0
       stable: 0.1.8
     dev: false
 
@@ -6988,7 +6986,7 @@ packages:
     dependencies:
       browserslist: 4.21.3
       escalade: 3.1.1
-      picocolors: 1.0.0
+      picocolors: registry.npmmirror.com/picocolors@1.0.0
     dev: false
 
   /update-notifier@6.0.2:
@@ -7248,6 +7246,27 @@ packages:
       y18n: 5.0.8
       yargs-parser: 20.2.9
     dev: true
+
+  registry.npmmirror.com/@clack/core@0.3.2:
+    resolution: {integrity: sha512-FZnsNynwGDIDktx6PEZK1EuCkFpY4ldEX6VYvfl0dqeoLPb9Jpw1xoUXaVcGR8ExmYNm1w2vdGdJkEUYD/2pqg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@clack/core/-/core-0.3.2.tgz}
+    name: '@clack/core'
+    version: 0.3.2
+    dependencies:
+      picocolors: registry.npmmirror.com/picocolors@1.0.0
+      sisteransi: registry.npmmirror.com/sisteransi@1.0.5
+    dev: true
+
+  registry.npmmirror.com/@clack/prompts@0.6.3:
+    resolution: {integrity: sha512-AM+kFmAHawpUQv2q9+mcB6jLKxXGjgu/r2EQjEwujgpCdzrST6BJqYw00GRn56/L/Izw5U7ImoLmy00X/r80Pw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@clack/prompts/-/prompts-0.6.3.tgz}
+    name: '@clack/prompts'
+    version: 0.6.3
+    dependencies:
+      '@clack/core': registry.npmmirror.com/@clack/core@0.3.2
+      picocolors: registry.npmmirror.com/picocolors@1.0.0
+      sisteransi: registry.npmmirror.com/sisteransi@1.0.5
+    dev: true
+    bundledDependencies:
+      - is-unicode-supported
 
   registry.npmmirror.com/@esbuild-kit/cjs-loader@2.4.2:
     resolution: {integrity: sha512-BDXFbYOJzT/NBEtp71cvsrGPwGAMGRB/349rwKuoxNSiKjPraNNnlK6MIIabViCjqZugu6j+xeMDlEkWdHHJSg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild-kit/cjs-loader/-/cjs-loader-2.4.2.tgz}
@@ -8120,6 +8139,13 @@ packages:
     name: concat-map
     version: 0.0.1
 
+  registry.npmmirror.com/consola@3.2.3:
+    resolution: {integrity: sha512-I5qxpzLv+sJhTVEoLYNcTW+bThDCPsit0vLNKShZx6rLtpilNpmmeTPaeqJb9ZE9dV3DGaeby6Vuhrw38WjeyQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/consola/-/consola-3.2.3.tgz}
+    name: consola
+    version: 3.2.3
+    engines: {node: ^14.18.0 || >=16.10.0}
+    dev: true
+
   registry.npmmirror.com/cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/cross-spawn/-/cross-spawn-7.0.3.tgz}
     name: cross-spawn
@@ -8538,6 +8564,13 @@ packages:
     version: 2.0.0
     dev: true
 
+  registry.npmmirror.com/jiti@1.16.0:
+    resolution: {integrity: sha512-L3BJStEf5NAqNuzrpfbN71dp43mYIcBUlCRea/vdyv5dW/AYa1d4bpelko4SHdY3I6eN9Wzyasxirj1/vv5kmg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/jiti/-/jiti-1.16.0.tgz}
+    name: jiti
+    version: 1.16.0
+    hasBin: true
+    dev: false
+
   registry.npmmirror.com/joycon@3.1.1:
     resolution: {integrity: sha512-34wB/Y7MW7bzjKRjUKTa46I2Z7eV62Rkhva+KkopW7Qvv/OSWBqvkSY7vusOPrNuZcUG3tApvdVgNB8POj3SPw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/joycon/-/joycon-3.1.1.tgz}
     name: joycon
@@ -8841,6 +8874,11 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  registry.npmmirror.com/picocolors@1.0.0:
+    resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/picocolors/-/picocolors-1.0.0.tgz}
+    name: picocolors
+    version: 1.0.0
+
   registry.npmmirror.com/picomatch@2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/picomatch/-/picomatch-2.3.1.tgz}
     name: picomatch
@@ -8991,6 +9029,12 @@ packages:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/signal-exit/-/signal-exit-3.0.7.tgz}
     name: signal-exit
     version: 3.0.7
+
+  registry.npmmirror.com/sisteransi@1.0.5:
+    resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/sisteransi/-/sisteransi-1.0.5.tgz}
+    name: sisteransi
+    version: 1.0.5
+    dev: true
 
   registry.npmmirror.com/slash@1.0.0:
     resolution: {integrity: sha512-3TYDR7xWt4dIqV2JauJr+EJeW356RXijHeUlO+8djJ+uBXPn8/2dpzBc8yQhh583sVvc9CvFAeQVgijsH+PNNg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/slash/-/slash-1.0.0.tgz}

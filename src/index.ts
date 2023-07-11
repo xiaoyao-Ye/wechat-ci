@@ -1,22 +1,34 @@
 #!/usr/bin/env node
-import { getSettings } from './utils/getSettings'
-import { getVersion } from './utils/getVersion'
-import { useInquirer } from './utils/inquirer'
-import { main } from './utils/main'
-import { parseEnv, defineConfig } from './utils/parseEnv'
-export { defineConfig }
+import { getSettings } from "./utils/getSettings";
+import { getVersion } from "./utils/getVersion";
+import { main } from "./utils/main";
+import { parseEnv } from "./utils/parseEnv";
+import { intro, outro, spinner, note } from "@clack/prompts";
+import { useCommand } from "./utils/useCommand";
+export { defineConfig } from "./utils/config";
+
+const welcome = `
+╭────────────────────────────────────────────╮
+│                                            │
+│  welcome to use wechat-ci!                 │
+│                                            │
+╰────────────────────────────────────────────╯`;
 
 const init = async () => {
-  const { projectPath, packageJsonPath, privateKeyPath, type, appid, robot, previewOptions, settings } =
-    await parseEnv()
+  intro(`wechat-ci`);
+  note(welcome, "Hello");
 
-  const setting = await getSettings(projectPath, settings)
+  const { projectPath, packageJsonPath, privateKeyPath, type, appid, robot, previewOptions, settings } = await parseEnv();
 
-  const packageVersion = await getVersion(packageJsonPath)
+  const setting = await getSettings(projectPath, settings);
 
-  const { mode, version, desc } = await useInquirer(packageVersion)
+  const packageVersion = await getVersion(packageJsonPath);
 
-  main({ projectPath, privateKeyPath, type, appid, robot, previewOptions, mode, version, desc, setting })
-}
+  const { mode, version, desc } = await useCommand(packageVersion);
 
-init()
+  main({ projectPath, privateKeyPath, type, appid, robot, previewOptions, mode, version, desc, setting });
+
+  outro(`complete!`);
+};
+
+init();

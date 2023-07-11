@@ -10,7 +10,7 @@
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
       "console": "integratedTerminal",
-      "program": "${workspaceFolder}\\src\\test.ts",
+      "program": "${workspaceFolder}\\src\\index.ts",
       "runtimeExecutable": "npx",
       "runtimeArgs": ["tsx"],
     }

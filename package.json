@@ -13,7 +13,7 @@
     "preinstall": "npx only-allow pnpm",
     "postinstall": "simple-git-hooks",
     "release": "npm run build && release-it",
-    "build": "tsc -p tsconfig.json",
+    "build": "tsup",
     "commit": "git-cz",
     "commit:origin": "git pull && git add . && git-cz && git push",
     "lint": "prettier --write \"**/*.{js,ts,json,vue,md}\""
@@ -33,9 +33,11 @@
   },
   "homepage": "https://github.com/xiaoyao-Ye/wechat-ci#readme",
   "devDependencies": {
+    "@clack/prompts": "^0.6.3",
     "@release-it/conventional-changelog": "^5.0.0",
     "@types/inquirer": "^8.2.1",
     "@types/node": "^18.6.4",
+    "consola": "^3.2.3",
     "git-cz": "^4.9.0",
     "lint-staged": "^13.2.3",
     "prettier": "^2.7.1",
@@ -55,7 +57,7 @@
   },
   "dependencies": {
     "inquirer": "8.0.0",
-    "jiti": "^1.14.0",
+    "jiti": "^1.16.0",
     "miniprogram-ci": "^1.8.35",
     "semver": "^7.3.7"
   }
