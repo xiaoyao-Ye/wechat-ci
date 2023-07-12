@@ -1,6 +1,5 @@
 import { UserConfigExport, UserConfig } from "./config";
 import { resolve, tryRequire } from "./index";
-// import { consola } from "consola";
 
 const loadEnv = async () => {
   try {
@@ -27,7 +26,12 @@ const validator = (options: UserConfig): UserConfig => {
 
   if (errorKeys.length) throw new Error(`配置项 ${errorKeys.join(", ")} 不能为空!`);
 
-  return { ...options, projectPath: resolve(options.projectPath), packageJsonPath: resolve(options.packageJsonPath) };
+  return {
+    ...options,
+    projectPath: resolve(options.projectPath),
+    packageJsonPath: resolve(options.packageJsonPath),
+    privateKeyPath: resolve(options.privateKeyPath),
+  };
 };
 
 const parseEnv = async () => {

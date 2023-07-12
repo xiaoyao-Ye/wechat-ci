@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import { getSettings } from "./utils/getSettings";
 import { getVersion } from "./utils/getVersion";
-import { main } from "./utils/main";
+import { Options, main } from "./utils/main";
 import { parseEnv } from "./utils/parseEnv";
-import { intro, outro, spinner, note } from "@clack/prompts";
+import { intro, outro, note } from "@clack/prompts";
 import { useCommand } from "./utils/useCommand";
 export { defineConfig } from "./utils/config";
 
@@ -26,7 +26,9 @@ const init = async () => {
 
   const { mode, version, desc } = await useCommand(packageVersion);
 
-  main({ projectPath, privateKeyPath, type, appid, robot, previewOptions, mode, version, desc, setting });
+  const options: Options = { projectPath, privateKeyPath, type, appid, robot, previewOptions, mode, version, desc, setting };
+
+  await main(options);
 
   outro(`complete!`);
 };
