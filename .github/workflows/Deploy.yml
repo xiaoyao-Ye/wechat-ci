@@ -9,10 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: pnpm/action-setup@v2.2.4
-        with:
-          version: latest
-
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -20,7 +16,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: pnpm
 
       - name: Authenticate with the NPM registry
         env:
@@ -36,13 +31,12 @@ jobs:
 
       - name: Install and Build
         run: |
-          pnpm install --no-frozen-lockfile
-          pnpm run build
-        # pnpm install --frozen-lockfile
+          npm install --no-frozen-lockfile
+          npm run build
+        # npm install --frozen-lockfile
 
       - name: Publish to npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          cd lib
           npm publish
