@@ -1,4 +1,6 @@
+## [0.3.0](https://github.com/xiaoyao-Ye/wechat-ci/compare/0.2.6...0.3.0) (2023-07-21)
 
+- refactor: 💡 complete
 
 ## [0.2.6](https://github.com/xiaoyao-Ye/wechat-ci/compare/0.2.3...0.2.6) (2022-08-11)
 
