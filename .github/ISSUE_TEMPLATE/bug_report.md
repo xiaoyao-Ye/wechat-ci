@@ -31,4 +31,4 @@ Please only use Codepen, JSFiddle, CodeSandbox or a github repo
 
 - Your OS:
 - Node.js version:
-- swagger.json or openapi.json version:
+- wechat-ci version:
