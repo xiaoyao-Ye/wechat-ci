@@ -3,6 +3,8 @@
 微信小程序 上传代码/预览, 命令行 上传/预览 微信小程序
 [基于 miniprogram-ci](https://www.npmjs.com/package/miniprogram-ci)
 
+- 简单配置高效使用, 拒绝繁琐配置项
+
 ## Usage
 
 1. 安装
