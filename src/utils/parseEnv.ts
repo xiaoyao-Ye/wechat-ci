@@ -8,23 +8,26 @@ const loadEnv = async () => {
   } catch (error: any) {
     if (error.code === "MODULE_NOT_FOUND") {
       throw new Error(
-        `请在项目根目录创建并配置 wx.config.ts 或 wx.config.js 文件. 参考: https://github.com/xiaoyao-Ye/wechat-ci`,
+        `Please create and configure a wx.config.ts or wx.config.js file in the project root directory. Reference: https://github.com/xiaoyao-Ye/wechat-ci`,
       );
     }
-    throw new Error(`读取 wx.config 失败: ${error}`);
+    throw new Error(`Failed to read wx.config file: ${error}`);
   }
 };
 
 const validator = (options: UserConfig): UserConfig => {
-  if (Object.keys(options).length === 0) throw new Error("未读取到 wx.config 具体配置项, 请检查配置文件是否正确!");
+  if (Object.keys(options).length === 0)
+    throw new Error("No wx.config specific configuration items were read, please check if the configuration file is correct!");
 
   const requiredRule = ["projectPath", "type", "appid", "privateKeyPath", "packageJsonPath"];
   const errorKeys = requiredRule.filter(key => !options[key as keyof typeof options]);
   if (options?.previewOptions?.qrcodeFormat === "image" && !options?.previewOptions?.qrcodeOutputDest) {
-    throw new Error("qrcodeFormat 属性的值为 image 时, qrcodeOutputDest 路径配置不能为空!");
+    throw new Error(
+      "When the value of the qrcodeFormat property is image, the qrcodeOutputDest path configuration cannot be empty!",
+    );
   }
 
-  if (errorKeys.length) throw new Error(`配置项 ${errorKeys.join(", ")} 不能为空!`);
+  if (errorKeys.length) throw new Error(`Configuration item ${errorKeys.join(", ")} cannot be null!`);
 
   return {
     ...options,
